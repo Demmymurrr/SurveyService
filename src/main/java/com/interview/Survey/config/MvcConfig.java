@@ -1,4 +1,4 @@
-package com.interview.Authorization_and_survey.config;
+package com.interview.Survey.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

@@ -1,4 +1,4 @@
-package com.interview.Authorization_and_survey;
+package com.interview.Survey;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package com.interview.Authorization_and_survey.repository;
+package com.interview.Survey.repository;
 
-import com.interview.Authorization_and_survey.entity.User;
+import com.interview.Survey.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User, Long> {

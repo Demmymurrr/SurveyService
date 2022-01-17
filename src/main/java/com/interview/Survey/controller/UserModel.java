@@ -1,11 +1,11 @@
-package com.interview.Authorization_and_survey.controller;
+package com.interview.Survey.controller;
 
-import com.interview.Authorization_and_survey.entity.Answer;
-import com.interview.Authorization_and_survey.entity.Survey;
-import com.interview.Authorization_and_survey.entity.User;
-import com.interview.Authorization_and_survey.repository.AnswerRepo;
-import com.interview.Authorization_and_survey.repository.SurveyRepo;
-import com.interview.Authorization_and_survey.repository.UserRepo;
+import com.interview.Survey.entity.Answer;
+import com.interview.Survey.entity.Survey;
+import com.interview.Survey.entity.User;
+import com.interview.Survey.repository.AnswerRepo;
+import com.interview.Survey.repository.SurveyRepo;
+import com.interview.Survey.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

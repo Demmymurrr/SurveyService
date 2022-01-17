@@ -1,7 +1,7 @@
-package com.interview.Authorization_and_survey.controller;
+package com.interview.Survey.controller;
 
 
-import com.interview.Authorization_and_survey.entity.Survey;
+import com.interview.Survey.entity.Survey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

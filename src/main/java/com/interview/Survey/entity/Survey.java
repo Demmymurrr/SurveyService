@@ -1,4 +1,4 @@
-package com.interview.Authorization_and_survey.entity;
+package com.interview.Survey.entity;
 
 import org.json.JSONArray;
 

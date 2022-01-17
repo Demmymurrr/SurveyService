@@ -1,10 +1,10 @@
-package com.interview.Authorization_and_survey.controller;
+package com.interview.Survey.controller;
 
 
-import com.interview.Authorization_and_survey.entity.AnswerType;
-import com.interview.Authorization_and_survey.entity.Question;
-import com.interview.Authorization_and_survey.entity.Survey;
-import com.interview.Authorization_and_survey.repository.SurveyRepo;
+import com.interview.Survey.entity.AnswerType;
+import com.interview.Survey.entity.Question;
+import com.interview.Survey.entity.Survey;
+import com.interview.Survey.repository.SurveyRepo;
 import org.json.JSONArray;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;

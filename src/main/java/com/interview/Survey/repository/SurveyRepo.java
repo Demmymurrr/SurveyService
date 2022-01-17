@@ -1,6 +1,6 @@
-package com.interview.Authorization_and_survey.repository;
+package com.interview.Survey.repository;
 
-import com.interview.Authorization_and_survey.entity.Survey;
+import com.interview.Survey.entity.Survey;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
