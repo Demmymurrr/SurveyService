@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Authorization_and_survay" />
+        <module name="Survey" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Authorization_and_survay" options="-parameters" />
+      <module name="Survey" options="-parameters" />
     </option>
   </component>
 </project>
