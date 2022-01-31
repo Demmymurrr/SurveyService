@@ -4,86 +4,55 @@ import javax.persistence.*;
 import java.util.Map;
 
 @Entity
-@Table(name = "answers_list")
+@Table(name = "user_answers")
 public class Answer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private long id_user;
-    private long id_survey;
-    private String answerFromMap;
-    @Transient
-    private Map<String, String> answers;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
+    @Column(name = "answer")
+    private String answer;
 
-    public Answer(long id_user, long id_survey, String answerFromJson) {
-        this.id_user = id_user;
-        this.id_survey = id_survey;
-        this.answerFromMap = answerFromJson;
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_surveys_id")
+    private UserSurveys userSurveys;
 
-    public Answer(long id_user, long id_survey, Map<String,String> answers) {
-        this.id_user = id_user;
-        this.id_survey = id_survey;
-        this.answers = answers;
-    }
-
-    public Answer(long id_user, long id_survey) {
-        this.id_user = id_user;
-        this.id_survey = id_survey;
-    }
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    private Question question;
 
     public Answer() {
-
     }
 
-    public Answer getOriginal() {
-        Answer answer = new Answer(id_user,id_survey,getMapAnswers());
-        return answer;
-    }
-
-    public String getMapAnswers() {
-        return answers.toString();
-    }
-
-    public Map<String,String> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(Map<String,String> answers) {
-        this.answers = answers;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public long getId_user() {
-        return id_user;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
-    public long getId_survey() {
-        return id_survey;
+    public UserSurveys getUserSurveys() {
+        return userSurveys;
     }
 
-    public void setId_survey(long id_survey) {
-        this.id_survey = id_survey;
+    public void setUserSurveys(UserSurveys userSurveys) {
+        this.userSurveys = userSurveys;
     }
 
-    public String getAnswerFromMap() {
-        return answerFromMap;
+    public Question getQuestion() {
+        return question;
     }
 
-    public void setAnswerFromMap(String answerFromJson) {
-        this.answerFromMap = answerFromJson;
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 }

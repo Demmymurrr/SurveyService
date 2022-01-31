@@ -1,9 +1,9 @@
 package com.interview.Survey.repository;
 
-import com.interview.Survey.entity.User;
+import com.interview.Survey.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Long> {
+public interface RoleRepo extends JpaRepository<Role, Long> {
 }

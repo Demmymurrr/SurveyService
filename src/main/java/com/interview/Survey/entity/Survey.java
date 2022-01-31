@@ -5,59 +5,30 @@ import org.json.JSONArray;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "survey")
+@Table(name = "surveys")
 public class Survey {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Column(name = "name")
     private String name;
-    private Date date_start;
-    private Date date_stop;
+
+    @Column(name = "start")
+    private Date start;
+    @Column(name = "stop")
+    private Date stop;
+    @Column(name = "description")
     private String description;
-    private String questsFromJson;
-    @Transient
-    private List<Question> questionList;
 
-
-    public Survey(String name, Date date_start, Date date_stop, String description, List<Question> questionList) {
-        this.name = name;
-        this.date_start = date_start;
-        this.date_stop = date_stop;
-        this.description = description;
-        this.questionList = questionList;
-    }
-
-    public Survey(String name, Date date_start, Date date_stop, String description, String questsFromJson) {
-        this.name = name;
-        this.date_start = date_start;
-        this.date_stop = date_stop;
-        this.description = description;
-        this.questsFromJson = questsFromJson;
-    }
+    @OneToMany
+    private Set<Question> questions;
 
     public Survey() {
-
-    }
-
-    public Survey getOriginal() {
-        Survey survey = new Survey(name, date_start, date_stop, description, getJSONQuestionList());
-        return survey;
-    }
-
-    public String getJSONQuestionList() {
-        JSONArray obj = new JSONArray(questionList);
-        return obj.toString();
-    }
-
-    public List<Question> getQuestionList() {
-        return questionList;
-    }
-
-    public void setQuestionList(List<Question> questionList) {
-        this.questionList = questionList;
     }
 
     public long getId() {
@@ -76,20 +47,20 @@ public class Survey {
         this.name = name;
     }
 
-    public Date getDate_start() {
-        return date_start;
+    public Date getStart() {
+        return start;
     }
 
-    public void setDate_start(Date date_start) {
-        this.date_start = date_start;
+    public void setStart(Date start) {
+        this.start = start;
     }
 
-    public Date getDate_stop() {
-        return date_stop;
+    public Date getStop() {
+        return stop;
     }
 
-    public void setDate_stop(Date date_stop) {
-        this.date_stop = date_stop;
+    public void setStop(Date stop) {
+        this.stop = stop;
     }
 
     public String getDescription() {
@@ -100,11 +71,11 @@ public class Survey {
         this.description = description;
     }
 
-    public String getQuestsFromJson() {
-        return questsFromJson;
+    public Set<Question> getQuestions() {
+        return questions;
     }
 
-    public void setQuestsFromJson(String questsFromJson) {
-        this.questsFromJson = questsFromJson;
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
     }
 }

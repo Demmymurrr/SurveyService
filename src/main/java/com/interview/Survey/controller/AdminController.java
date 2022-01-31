@@ -2,38 +2,43 @@ package com.interview.Survey.controller;
 
 
 import com.interview.Survey.entity.Survey;
+import com.interview.Survey.service.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-
-@Controller
+@RestController
 @RequestMapping("/admin")
 @PreAuthorize("hasAuthority('ADMIN')")
 public class AdminController {
 
+
     @Autowired
-    private AdminModel adminModel;
+    private AdminServiceImpl adminService;
 
-    @PostMapping()
-    public Survey create(@RequestBody Map<String,String> map) {
-        return adminModel.addSurvey(map);
-    }
+    @PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Survey> create(@RequestBody Survey survey) {
+        Survey createdSurvey = adminService.create(survey);
 
-    @PostMapping("{id}")
-    public Survey update(@PathVariable("id") String id,
-                         @RequestBody Map<String,String> map) {
-        return adminModel.update(id, map);
-    }
-
-    @DeleteMapping("{id}")
-    public void delete (@PathVariable("id") String id) {
-        adminModel.delete(id);
+        return new ResponseEntity<Survey>(createdSurvey, HttpStatus.OK);
     }
 
 
+    @PostMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Survey> update(@PathVariable("id") Long id,
+                                         @RequestBody Survey survey) {
+        Survey updatedSurvey = adminService.update(id, survey);
+
+        return new ResponseEntity<Survey>(updatedSurvey, HttpStatus.OK);
+    }
 
 
+    @DeleteMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Survey> delete (@PathVariable("id") Long id) {
+        adminService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
